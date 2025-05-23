@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import { motion } from "framer-motion";
 import {
   FaReact,
@@ -76,10 +77,12 @@ const About = () => {
         {skills.map((skill) => (
           <motion.div
             key={skill.name}
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-2 cursor-pointer"
             variants={item}
           >
-            <span className="text-4xl">{skill.icon}</span>
+            <span className="text-4xl hover:scale-150 transition-all duration-300 ease-in-out">
+              {skill.icon}
+            </span>
             <span className="text-sm font-medium">{skill.name}</span>
           </motion.div>
         ))}

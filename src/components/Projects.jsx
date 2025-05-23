@@ -1,8 +1,9 @@
+/*eslint-disable*/
 import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Blog Platform",
+    title: "Blog App",
     description:
       "This is a fully responsive blog application built using the MERN stack. The app allows users to create, read, update, and delete blog posts while offering a clean and modern UI.",
     image: "https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg",
@@ -10,7 +11,7 @@ const projects = [
     repo: "https://github.com/mr-raushan/Blog-App",
   },
   {
-    title: "Yutube Clone",
+    title: "Youtube Clone",
     description:
       "This is a YouTube Clone built using React, Redux Toolkit, Tailwind CSS, and React Router DOM. It fetches real-time video data and provides a smooth user experience similar to YouTube.",
     image: "https://images.indianexpress.com/2021/06/YouTube-logo.jpg",
@@ -90,13 +91,13 @@ const Projects = () => {
         {projects.map((project) => (
           <motion.div
             key={project.title}
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col"
+            className="bg-white cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out dark:bg-gray-800 hover:shadow-xl rounded-xl shadow-lg overflow-hidden flex flex-col"
             variants={item}
           >
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-48 object-cover"
+              className="w-full h-44 object-cover"
             />
             <div className="p-6 flex-1 flex flex-col">
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>

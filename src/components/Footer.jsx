@@ -31,7 +31,9 @@ const Footer = () => (
       ))}
     </nav>
     <div>
-      &copy; {new Date().getFullYear()} Raushan Kumar. All rights reserved.
+      &copy; {new Date().getFullYear()}{" "}
+      <span className="font-bold underline italic">Raushan Kumar</span>. All
+      rights reserved.
     </div>
   </footer>
 );

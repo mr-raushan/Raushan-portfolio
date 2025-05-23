@@ -1,9 +1,16 @@
+/*eslint-disable*/
 import { useState, useEffect } from "react";
 import heroImg from "../assets/raushan_ghibli.png";
 import resume from "../assets/raushan__kumar.pdf";
 import { motion } from "framer-motion";
 
-const roles = ["React Developer", "Frontend Developer", "Web Developer"];
+const roles = [
+  "React.js Developer",
+  "Frontend Developer",
+  "Web Developer",
+  "UI/UX Designer",
+  "MERN Stack Developer",
+];
 
 const TYPING_SPEED = 80;
 const PAUSE_DURATION = 1200;

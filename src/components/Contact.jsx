@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 

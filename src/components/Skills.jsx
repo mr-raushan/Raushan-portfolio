@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import {
   FaHtml5,
   FaCss3Alt,
@@ -110,7 +111,8 @@ const Skills = () => {
         {skills.map((skill) => (
           <motion.div
             key={skill.name}
-            className="flex items-center gap-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-6 py-5 shadow hover:shadow-lg transition-all min-h-[72px]"
+            className="flex items-center gap-4 cursor-pointer bg-white dark:bg-gray-800 border border-gray-200 
+            dark:border-gray-700 rounded-lg px-6 py-5 shadow hover:shadow-lg transition-all min-h-[72px]"
             variants={item}
           >
             <span className="text-3xl md:text-4xl">{skill.icon(theme)}</span>
