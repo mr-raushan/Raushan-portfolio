@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import { useState, useEffect } from "react";
 import heroImg from "../assets/raushan_ghibli.png";
-import resume from "../assets/Raushan-kumar";
+import resume from "../assets/Raushan-kumar.pdf";
 import { motion } from "framer-motion";
 
 const roles = [
