@@ -46,7 +46,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4 py-24 gap-18"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4 py-12"
     >
       <motion.div
         className="flex-1 flex flex-col items-start justify-center gap-6"
@@ -87,7 +87,7 @@ const Hero = () => {
           </a>
         </div>
       </motion.div>
-      <div className="right w-full md:w-1/2 h-auto flex justify-center items-start ">
+      <div className="right w-full md:w-1/2 h-auto flex py-12 justify-center items-start ">
         <motion.div
           animate={{
             rotate: [180, 360],

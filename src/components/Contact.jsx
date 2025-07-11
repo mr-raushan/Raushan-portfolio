@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
@@ -133,7 +134,7 @@ const Contact = () => {
           href="https://github.com/mr-raushan/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-2xl text-white hover:text-gray-600 hover:text-gray-400"
+          className="text-2xl text-white"
           variants={item}
         >
           <FaGithub />
