@@ -96,7 +96,7 @@ const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="max-w-6xl mx-auto px-4 py-24"
+      className="max-w-7xl mx-auto px-4 py-24"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -111,12 +111,12 @@ const Skills = () => {
         {skills.map((skill) => (
           <motion.div
             key={skill.name}
-            className="flex items-center gap-4 cursor-pointer bg-white dark:bg-gray-800 border border-gray-200 
-            dark:border-gray-700 rounded-lg px-6 py-5 shadow hover:shadow-lg transition-all min-h-[72px]"
+            className="flex items-center gap-4 cursor-pointer bg-white bg-gray-800 border border-gray-200 hover:bg-gray-700 duration-300 transition-all ease-in-out
+            border-gray-700 rounded-lg px-6 py-5 shadow hover:shadow-lg transition-all min-h-[72px]"
             variants={item}
           >
             <span className="text-3xl md:text-4xl">{skill.icon(theme)}</span>
-            <span className="font-semibold text-lg md:text-xl text-gray-900 dark:text-white">
+            <span className="font-semibold text-lg md:text-xl  text-white">
               {skill.name}
             </span>
           </motion.div>

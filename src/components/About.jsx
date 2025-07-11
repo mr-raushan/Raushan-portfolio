@@ -1,4 +1,4 @@
-/*eslint-disable*/
+/* eslint-disable */
 import { motion } from "framer-motion";
 import {
   FaReact,
@@ -7,13 +7,11 @@ import {
   FaCss3Alt,
   FaNodeJs,
   FaGitAlt,
+  FaGithub,
 } from "react-icons/fa";
-import { SiRedux } from "react-icons/si";
+import { SiRedux, SiPostman } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
-import { FaGithub } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
-import { SiPostman } from "react-icons/si";
-import { IoLogoVercel } from "react-icons/io5";
 
 const skills = [
   { icon: <FaReact className="text-blue-500" />, name: "React" },
@@ -30,7 +28,6 @@ const skills = [
   { icon: <FaGithub className="text-gray-700" />, name: "GitHub" },
   { icon: <DiMongodb className="text-green-500" />, name: "MongoDB" },
   { icon: <SiPostman className="text-red-500" />, name: "Postman" },
-  { icon: <IoLogoVercel className="text-black" />, name: "Vercel" },
 ];
 
 const container = {
@@ -44,6 +41,7 @@ const container = {
     },
   },
 };
+
 const item = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0 },
@@ -59,15 +57,16 @@ const About = () => {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <h2 className="text-3xl font-bold mb-4">About Me</h2>
-      <p className="text-lg text-gray-700 dark:text-gray-300">
+      <p className="text-lg text-gray-300">
         I'm a passionate frontend developer with a strong background in building
         modern, scalable web applications. I specialize in working with React,
         Redux, and JavaScript to create seamless, high-performance user
         interfaces. With a focus on clean code, responsive design, and intuitive
         user experiences, I strive to build solutions that are both functional
         and visually appealing. I'm always eager to learn new technologies,
-        solve real-world problems, and collaborate on impactful projects
+        solve real-world problems, and collaborate on impactful projects.
       </p>
+
       <motion.div
         className="flex flex-wrap gap-6 mt-4"
         variants={container}
@@ -77,13 +76,18 @@ const About = () => {
         {skills.map((skill) => (
           <motion.div
             key={skill.name}
-            className="flex flex-col items-center gap-2 cursor-pointer"
+            className="relative group flex flex-col space-x-6 items-center"
             variants={item}
           >
-            <span className="text-4xl hover:scale-150 transition-all duration-300 ease-in-out">
+            {/* Icon */}
+            <span className="text-4xl hover:scale-150 transition-all duration-300 ease-in-out m-2">
               {skill.icon}
             </span>
-            <span className="text-sm font-medium">{skill.name}</span>
+
+            {/* Tooltip (on hover) */}
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-center scale-0 group-hover:scale-100 transition-transform bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
+              {skill.name}
+            </span>
           </motion.div>
         ))}
       </motion.div>

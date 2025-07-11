@@ -17,7 +17,7 @@ const navLinks = [
 ];
 
 const Footer = () => (
-  <footer className="py-8 text-center text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+  <footer className="py-8 text-center text-gray-500 dark:text-gray-400 bg-gray-900 border-t border-gray-200 dark:border-gray-700">
     <nav className="mb-2 flex flex-wrap justify-center gap-6">
       {navLinks.map((link) => (
         <Link
@@ -31,6 +31,10 @@ const Footer = () => (
       ))}
     </nav>
     <div>
+      <p className="font-bold text-gray-300">
+        Email :{" "}
+        <span className="text-gray-300 underline">kraushan9056@gmail.com</span>{" "}
+      </p>
       &copy; {new Date().getFullYear()}{" "}
       <span className="font-bold underline italic">Raushan Kumar</span>. All
       rights reserved.

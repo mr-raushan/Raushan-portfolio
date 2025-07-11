@@ -1,8 +1,8 @@
 /*eslint-disable*/
 import { useState, useEffect } from "react";
-import heroImg from "../assets/raushan_ghibli.png";
-import resume from "../assets/Raushan-kumar.pdf";
+import resume from "../assets/raushan.pdf";
 import { motion } from "framer-motion";
+import landingPageAvatar from "../assets/landingPage_avatar.jpg";
 
 const roles = [
   "React.js Developer",
@@ -61,7 +61,7 @@ const Hero = () => {
           <span>{displayed}</span>
           <span className="animate-pulse">|</span>
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-md">
+        <p className="text-lg text-gray-300 max-w-md">
           I specialize in building beautiful, responsive, and high-performance
           web applications using React and modern technologies. With a strong
           focus on clean code, intuitive UI/UX, and scalability, I aim to
@@ -87,20 +87,26 @@ const Hero = () => {
           </a>
         </div>
       </motion.div>
-      <motion.div
-        className="flex-1 flex items-center justify-center"
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-      >
-        <motion.img
-          src={heroImg}
-          alt="Raushan Kumar"
-          className="w-96 h-96 object-contain p-4 shadow-md rounded-2xl "
-          whileHover={{ scale: 1.04, rotate: -2 }}
-          transition={{ type: "spring", stiffness: 200, damping: 12 }}
-        />
-      </motion.div>
+      <div className="right w-full md:w-1/2 h-auto flex justify-center items-start ">
+        <motion.div
+          animate={{
+            rotate: [180, 360],
+          }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="w-full flex justify-center items-center"
+        >
+          <div className="landingPage-img w-[200px] md:w-[300px] lg:w-[320px] h-[200px] md:h-[300px] lg:h-[320px]  top-1 rounded-full border-zinc-100 border-[2px]"></div>
+          <img
+            src={landingPageAvatar}
+            className="absolute top-2 w-[200px] md:w-[250px] lg:w-[300px]"
+            alt=""
+          />
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -76,7 +76,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="max-w-6xl mx-auto px-4 py-24"
+      className="max-w-7xl mx-auto px-4 py-24"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -91,7 +91,7 @@ const Projects = () => {
         {projects.map((project) => (
           <motion.div
             key={project.title}
-            className="bg-white cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out dark:bg-gray-800 hover:shadow-xl rounded-xl shadow-lg overflow-hidden flex flex-col"
+            className=" cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out bg-gray-800 hover:shadow-xl rounded-xl shadow-lg overflow-hidden flex flex-col"
             variants={item}
           >
             <img
@@ -101,15 +101,13 @@ const Projects = () => {
             />
             <div className="p-6 flex-1 flex flex-col">
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 flex-1">
-                {project.description}
-              </p>
-              <div className="flex gap-4 mt-auto">
+              <p className="text-gray-200 mb-4 flex-1">{project.description}</p>
+              <div className="flex items-center justify-between gap-4 mt-auto">
                 <a
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors font-medium"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                 >
                   Live Demo
                 </a>
@@ -117,7 +115,7 @@ const Projects = () => {
                   href={project.repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium"
+                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium"
                 >
                   GitHub Repo
                 </a>
