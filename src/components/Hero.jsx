@@ -46,7 +46,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-4 py-24 gap-12"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4 py-24 gap-18"
     >
       <motion.div
         className="flex-1 flex flex-col items-start justify-center gap-6"
