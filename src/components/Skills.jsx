@@ -1,128 +1,230 @@
-/*eslint-disable*/
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaNodeJs,
-  FaGitAlt,
-} from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
-import { SiRedux } from "react-icons/si";
-
-import { FaGithub } from "react-icons/fa";
-import { DiMongodb } from "react-icons/di";
-import { SiPostman } from "react-icons/si";
-import { IoLogoVercel } from "react-icons/io5";
-import { SiExpress } from "react-icons/si";
-import { SiNetlify } from "react-icons/si";
-import { VscVscode } from "react-icons/vsc";
-import { FcLinux } from "react-icons/fc";
-import { SiShadcnui } from "react-icons/si";
-import { SiMui } from "react-icons/si";
+/* eslint-disable */
 import { motion } from "framer-motion";
 
-const skills = [
-  { name: "React.js", icon: (theme) => <FaReact className="text-cyan-400" /> },
-  { name: "Redux", icon: (theme) => <SiRedux className="text-purple-500" /> },
-  { name: "Javascript", icon: (theme) => <FaJs className="text-yellow-400" /> },
+import { FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+
+import {
+  SiRedux,
+  SiTailwindcss,
+  SiTypescript,
+  SiNextdotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostman,
+  SiMui,
+  SiShadcnui,
+  SiReactquery,
+} from "react-icons/si";
+
+import { TbBrandReactNative } from "react-icons/tb";
+
+const skillCategories = [
   {
-    name: "Tailwind CSS",
-    icon: (theme) => <SiTailwindcss className="text-cyan-400" />,
+    title: "Frontend",
+    skills: [
+      { name: "React.js", icon: <FaReact /> },
+      { name: "Next.js", icon: <SiNextdotjs /> },
+      { name: "React Native", icon: <TbBrandReactNative /> },
+      { name: "TypeScript", icon: <SiTypescript /> },
+      { name: "Redux Toolkit", icon: <SiRedux /> },
+      { name: "React Query", icon: <SiReactquery /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      { name: "Material UI", icon: <SiMui /> },
+      { name: "Shadcn UI", icon: <SiShadcnui /> },
+    ],
   },
+
   {
-    name: "Shadcn UI",
-    icon: (theme) => <SiShadcnui className="text-blue-500" />,
+    title: "Backend",
+    skills: [
+      { name: "Node.js", icon: <FaNodeJs /> },
+      { name: "Express.js", icon: <SiExpress /> },
+      { name: "MongoDB", icon: <SiMongodb /> },
+    ],
   },
+
   {
-    name: "Material UI",
-    icon: (theme) => <SiMui className="text-blue-500" />,
+    title: "Tools",
+    skills: [
+      { name: "Git", icon: <FaGitAlt /> },
+      { name: "GitHub", icon: <FaGithub /> },
+      { name: "Postman", icon: <SiPostman /> },
+    ],
   },
-  { name: "HTML", icon: (theme) => <FaHtml5 className="text-orange-500" /> },
-  { name: "CSS", icon: (theme) => <FaCss3Alt className="text-blue-500" /> },
-  { name: "GitHub", icon: (theme) => <FaGithub className="text-gray-700" /> },
-  { name: "Git", icon: (theme) => <FaGitAlt className="text-orange-600" /> },
-  { name: "Node.js", icon: (theme) => <FaNodeJs className="text-green-600" /> },
-  {
-    name: "Express.js",
-    icon: (theme) => <SiExpress className="text-red-500" />,
-  },
-  {
-    name: "MongoDB",
-    icon: (theme) => <DiMongodb className="text-green-500" />,
-  },
-  { name: "Postman", icon: (theme) => <SiPostman className="text-red-500" /> },
-  { name: "Vercel", icon: (theme) => <IoLogoVercel className="text-black" /> },
-  { name: "Netlify", icon: (theme) => <SiNetlify className="text-blue-500" /> },
-  { name: "VSCode", icon: (theme) => <VscVscode className="text-blue-500" /> },
-  { name: "Linux", icon: (theme) => <FcLinux className="text-blue-500" /> },
 ];
 
-import { useEffect, useState } from "react";
-
-const getTheme = () =>
-  document.documentElement.classList.contains("dark") ? "dark" : "light";
-
-const container = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2,
-    },
-  },
-};
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
-
 const Skills = () => {
-  const [theme, setTheme] = useState(getTheme());
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setTheme(getTheme());
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <motion.section
-      id="skills"
-      className="max-w-7xl mx-auto px-4 py-24"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
-      <h2 className="text-3xl font-bold mb-8">My Top Skills</h2>
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {skills.map((skill) => (
-          <motion.div
-            key={skill.name}
-            className="flex items-center gap-4 cursor-pointer  bg-gray-800 border  hover:bg-gray-700 duration-300 transition-all ease-in-out
-            border-gray-700 rounded-lg px-6 py-5 shadow hover:shadow-lg min-h-[72px]"
-            variants={item}
+    <section id="skills" className="relative py-32 px-6 bg-[#050505]">
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <span
+            className="
+              px-4
+              py-2
+              rounded-full
+              border
+              border-white/10
+              bg-white/5
+              text-sm
+              text-zinc-400
+            "
           >
-            <span className="text-3xl md:text-4xl">{skill.icon(theme)}</span>
-            <span className="font-semibold text-lg md:text-xl  text-white">
-              {skill.name}
-            </span>
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.section>
+            Skills & Technologies
+          </span>
+
+          <h2
+            className="
+              text-5xl
+              md:text-7xl
+              font-bold
+              mt-8
+              leading-tight
+            "
+          >
+            Technologies I use
+            <br />
+            to build products.
+          </h2>
+        </motion.div>
+
+        {/* Categories */}
+
+        <div className="space-y-8">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+              className="
+                rounded-[32px]
+                border
+                border-white/10
+                bg-gradient-to-b
+                from-white/[0.05]
+                to-white/[0.02]
+                backdrop-blur-xl
+                p-8
+              "
+            >
+              {/* Category Header */}
+
+              <div className="mb-8">
+                <h3 className="text-2xl font-semibold">{category.title}</h3>
+
+                <p className="text-zinc-500 text-sm mt-1">
+                  {category.skills.length} Technologies
+                </p>
+              </div>
+
+              {/* Skills Grid */}
+
+              <div
+                className="
+                  grid
+                  grid-cols-2
+                  md:grid-cols-3
+                  lg:grid-cols-5
+                  gap-4
+                "
+              >
+                {category.skills.map((skill) => (
+                  <motion.div
+                    key={skill.name}
+                    whileHover={{
+                      y: -5,
+                      scale: 1.05,
+                    }}
+                    transition={{
+                      duration: 0.2,
+                    }}
+                    className="
+                      group
+                      relative
+                      h-[90px]
+                      rounded-2xl
+                      border
+                      border-white/10
+                      bg-[#0a0a0a]
+                      flex
+                      flex-col
+                      items-center
+                      justify-center
+                      cursor-pointer
+                      overflow-hidden
+                    "
+                  >
+                    {/* Hover Glow */}
+
+                    <div
+                      className="
+                        absolute
+                        inset-0
+                        opacity-0
+                        group-hover:opacity-100
+                        transition-all
+                        duration-300
+                        bg-gradient-to-b
+                        from-blue-500/10
+                        to-purple-500/10
+                      "
+                    />
+
+                    {/* Icon */}
+
+                    <span
+                      className="
+                        relative
+                        z-10
+                        text-2xl
+                        text-white
+                        mb-2
+                        transition-all
+                        duration-300
+                        group-hover:text-blue-400
+                      "
+                    >
+                      {skill.icon}
+                    </span>
+
+                    {/* Name */}
+
+                    <span
+                      className="
+                        relative
+                        z-10
+                        text-xs
+                        text-zinc-400
+                        group-hover:text-white
+                        transition-all
+                        duration-300
+                        text-center
+                        px-2
+                      "
+                    >
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -1,97 +1,211 @@
 /* eslint-disable */
 import { motion } from "framer-motion";
+import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
+
 import {
-  FaReact,
-  FaJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaNodeJs,
-  FaGitAlt,
-  FaGithub,
-} from "react-icons/fa";
-import { SiRedux, SiPostman } from "react-icons/si";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { DiMongodb } from "react-icons/di";
+  SiNextdotjs,
+  SiTypescript,
+  SiRedux,
+  SiTailwindcss,
+  SiMongodb,
+  SiReactquery,
+} from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 
-const skills = [
-  { icon: <FaReact className="text-blue-500" />, name: "React" },
-  { icon: <SiRedux className="text-purple-500" />, name: "Redux" },
-  { icon: <FaJs className="text-yellow-400" />, name: "JavaScript" },
-  { icon: <FaHtml5 className="text-orange-600" />, name: "HTML5" },
-  { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS3" },
+const technologies = [
   {
-    icon: <RiTailwindCssFill className="text-cyan-400" />,
-    name: "Tailwind CSS",
+    name: "React",
+    icon: <FaReact />,
   },
-  { icon: <FaNodeJs className="text-green-600" />, name: "Node.js" },
-  { icon: <FaGitAlt className="text-red-500" />, name: "Git" },
-  { icon: <FaGithub className="text-gray-700" />, name: "GitHub" },
-  { icon: <DiMongodb className="text-green-500" />, name: "MongoDB" },
-  { icon: <SiPostman className="text-red-500" />, name: "Postman" },
+  {
+    name: "Next.js",
+    icon: <SiNextdotjs />,
+  },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript />,
+  },
+  {
+    name: "React Native",
+    icon: <TbBrandReactNative />,
+  },
+  {
+    name: "Redux",
+    icon: <SiRedux />,
+  },
+  {
+    name: "Tailwind",
+    icon: <SiTailwindcss />,
+  },
+  {
+    name: "React Query",
+    icon: <SiReactquery />,
+  },
+  {
+    name: "Node.js",
+    icon: <FaNodeJs />,
+  },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb />,
+  },
+  {
+    name: "GitHub",
+    icon: <FaGithub />,
+  },
 ];
-
-const container = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
 
 const About = () => {
   return (
-    <motion.section
-      id="about"
-      className="max-w-4xl mx-auto px-4 py-24 flex flex-col gap-8"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
-      <h2 className="text-3xl font-bold mb-4">About Me</h2>
-      <p className="text-lg text-gray-300">
-        I'm a passionate frontend developer with a strong background in building
-        modern, scalable web applications. I specialize in working with React,
-        Redux, and JavaScript to create seamless, high-performance user
-        interfaces. With a focus on clean code, responsive design, and intuitive
-        user experiences, I strive to build solutions that are both functional
-        and visually appealing. I'm always eager to learn new technologies,
-        solve real-world problems, and collaborate on impactful projects.
-      </p>
-
-      <motion.div
-        className="flex flex-wrap gap-6 mt-4"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {skills.map((skill) => (
-          <motion.div
-            key={skill.name}
-            className="relative group flex flex-col space-x-6 items-center"
-            variants={item}
+    <section id="about" className="relative py-32 px-6 bg-[#050505]">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <span
+            className="
+            px-4 py-2
+            rounded-full
+            border border-white/10
+            bg-white/5
+            text-sm
+            text-zinc-400
+          "
           >
-            {/* Icon */}
-            <span className="text-4xl hover:scale-150 transition-all duration-300 ease-in-out m-2">
-              {skill.icon}
-            </span>
+            About Me
+          </span>
 
-            {/* Tooltip (on hover) */}
-            <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-center scale-0 group-hover:scale-100 transition-transform bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
-              {skill.name}
-            </span>
+          <h2
+            className="
+            text-5xl
+            md:text-7xl
+            font-bold
+            mt-8
+            leading-tight
+          "
+          >
+            Building products
+            <br />
+            that people enjoy using.
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-10">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="
+              rounded-3xl
+              border border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              p-8
+            "
+          >
+            <h3 className="text-2xl font-semibold mb-6">Who I Am</h3>
+
+            <p className="text-zinc-400 leading-8">
+              I'm a Frontend Developer with experience building scalable web and
+              mobile applications using React, Next.js, TypeScript and React
+              Native.
+              <br />
+              <br />
+              Currently working as a Software Engineer where I develop
+              production-grade applications, improve user experiences and
+              collaborate with cross-functional teams to deliver high-quality
+              products.
+              <br />
+              <br />I enjoy turning complex problems into simple, beautiful and
+              intuitive user interfaces.
+            </p>
           </motion.div>
-        ))}
-      </motion.div>
-    </motion.section>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="
+              rounded-3xl
+              border border-white/10
+              bg-white/5
+              backdrop-blur-xl
+              p-8
+            "
+          >
+            <h3 className="text-2xl font-semibold mb-6">Quick Highlights</h3>
+
+            <div className="space-y-8">
+              <div>
+                <h4 className="text-4xl font-bold text-white">1+</h4>
+                <p className="text-zinc-400">
+                  Years of Professional Experience
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-4xl font-bold text-white">10+</h4>
+                <p className="text-zinc-400">Projects Developed</p>
+              </div>
+
+              <div>
+                <h4 className="text-4xl font-bold text-white">React</h4>
+                <p className="text-zinc-400">Frontend & Mobile Development</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Tech Stack */}
+        {/* <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-20"
+        >
+          <h3 className="text-3xl font-semibold mb-10">Tech Stack</h3>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {technologies.map((tech) => (
+              <motion.div
+                key={tech.name}
+                whileHover={{
+                  y: -8,
+                }}
+                className="
+                  group
+                  rounded-2xl
+                  border
+                  border-white/10
+                  bg-white/5
+                  backdrop-blur-xl
+                  p-6
+                  flex
+                  flex-col
+                  items-center
+                  justify-center
+                  gap-4
+                  cursor-pointer
+                "
+              >
+                <div className="text-4xl text-white">{tech.icon}</div>
+
+                <p className="text-zinc-400 group-hover:text-white transition">
+                  {tech.name}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div> */}
+      </div>
+    </section>
   );
 };
 

@@ -1,73 +1,200 @@
-/*eslint-disable*/
+/* eslint-disable */
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
 
-const Navbar = ({ darkMode, setDarkMode }) => {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "Home", id: "hero" },
-    { label: "About", id: "about" },
-    { label: "Skills", id: "skills" },
-    { label: "Projects", id: "projects" },
-    { label: "Contact", id: "contact" },
+    {
+      label: "About",
+      id: "about",
+    },
+    {
+      label: "Experience",
+      id: "experience",
+    },
+    {
+      label: "Projects",
+      id: "projects",
+    },
+    {
+      label: "Contact",
+      id: "contact",
+    },
   ];
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+
+    setMenuOpen(false);
+  };
+
   return (
-    <nav className="fixed w-full z-50 bg-gray-900 shadow-xl h-16 border-b border-gray-600">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="font-bold text-xl tracking-tight">
-          <Link to="/">Raushan Kumar</Link>
-        </div>
-        <div className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.id}
-              to={`#${link.id}`}
-              onClick={(e) => scrollToSection(e, link.id)}
-              className="hover:text-blue-500 transition-colors"
+    <header className="fixed top-0 left-0 w-full z-50 px-4 md:px-8 pt-5">
+      <nav
+        className="
+        max-w-7xl
+        mx-auto
+        h-16
+        rounded-2xl
+        border
+        border-white/10
+        bg-white/5
+        backdrop-blur-xl
+        shadow-[0_8px_30px_rgb(0,0,0,0.3)]
+        flex
+        items-center
+        justify-between
+        px-6
+      "
+      >
+        {/* Logo */}
+        <button
+          onClick={() => scrollToSection("hero")}
+          className="text-xl md:text-2xl font-bold tracking-tight"
+        >
+          <span className="text-white">Raushan</span>
+          <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            .
+          </span>
+        </button>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="
+                text-zinc-400
+                hover:text-white
+                transition-all
+                duration-300
+                text-sm
+                tracking-wide
+              "
             >
-              {link.label}
-            </Link>
+              {item.label}
+            </button>
           ))}
         </div>
+
+        {/* Desktop Right */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="
+              text-zinc-400
+              hover:text-white
+              transition-all
+            "
+          >
+            <FaGithub size={18} />
+          </a>
+
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="
+              text-zinc-400
+              hover:text-white
+              transition-all
+            "
+          >
+            <FaLinkedin size={18} />
+          </a>
+
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="
+              px-5
+              py-2.5
+              rounded-full
+              bg-gradient-to-r
+              from-blue-600
+              to-purple-600
+              text-white
+              text-sm
+              font-medium
+              hover:scale-105
+              transition-all
+            "
+          >
+            Resume
+          </a>
+        </div>
+
+        {/* Mobile Button */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          className="md:hidden text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
-      </div>
+      </nav>
+
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur shadow-lg absolute top-full left-0 w-full animate-fade-in flex flex-col items-center py-6 gap-6 z-50">
-          {navLinks.map((link) => (
-            <Link
-              key={link.id}
-              to={`#${link.id}`}
-              onClick={(e) =>
-                scrollToSection(e, link.id, () => setMenuOpen(false))
-              }
-              className="text-lg font-medium hover:text-blue-500 transition-colors"
+        <div
+          className="
+            md:hidden
+            mt-3
+            rounded-2xl
+            border
+            border-white/10
+            bg-[#0f172a]/95
+            backdrop-blur-xl
+            p-6
+          "
+        >
+          <div className="flex flex-col gap-6">
+            {navLinks.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="
+                  text-left
+                  text-zinc-300
+                  hover:text-white
+                  transition-all
+                "
+              >
+                {item.label}
+              </button>
+            ))}
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="
+                w-fit
+                px-5
+                py-2
+                rounded-full
+                bg-gradient-to-r
+                from-blue-600
+                to-purple-600
+              "
             >
-              {link.label}
-            </Link>
-          ))}
-          <button
-            onClick={() => setDarkMode((prev) => !prev)}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? (
-              <FaSun className="text-yellow-400" />
-            ) : (
-              <FaMoon className="text-gray-800" />
-            )}
-          </button>
+              Resume
+            </a>
+          </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

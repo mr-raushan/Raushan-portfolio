@@ -1,45 +1,141 @@
-import { Link } from "react-router-dom";
+/* eslint-disable */
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
-const scrollToSection = (e, id) => {
-  e.preventDefault();
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
-const navLinks = [
-  { label: "Home", id: "hero" },
-  { label: "About", id: "about" },
-  { label: "Skills", id: "skills" },
-  { label: "Projects", id: "projects" },
-  { label: "Contact", id: "contact" },
-];
-
-const Footer = () => (
-  <footer className="py-8 text-center text-gray-500 dark:text-gray-400 bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-    <nav className="mb-2 flex flex-wrap justify-center gap-6">
-      {navLinks.map((link) => (
-        <Link
-          key={link.id}
-          to={`#${link.id}`}
-          onClick={(e) => scrollToSection(e, link.id)}
-          className="hover:text-blue-500 transition-colors font-medium"
+const Footer = () => {
+  return (
+    <footer
+      className="
+        relative
+        border-t
+        border-white/10
+        bg-[#050505]
+        py-20
+        px-6
+      "
+    >
+      <div className="max-w-7xl mx-auto">
+        <div
+          className="
+            flex
+            flex-col
+            lg:flex-row
+            justify-between
+            gap-12
+          "
         >
-          {link.label}
-        </Link>
-      ))}
-    </nav>
-    <div>
-      <p className="font-bold text-gray-300">
-        Email :{" "}
-        <span className="text-gray-300 underline">kraushan9056@gmail.com</span>{" "}
-      </p>
-      &copy; {new Date().getFullYear()}{" "}
-      <span className="font-bold underline italic">Raushan Kumar</span>. All
-      rights reserved.
-    </div>
-  </footer>
-);
+          <div>
+            <h2
+              className="
+                text-3xl
+                md:text-4xl
+                font-bold
+              "
+            >
+              Raushan Kumar
+            </h2>
+
+            <p
+              className="
+                mt-5
+                text-zinc-400
+                max-w-md
+                leading-8
+              "
+            >
+              Frontend Engineer focused on building modern web and mobile
+              applications using React, Next.js and React Native.
+            </p>
+          </div>
+          <div>
+            <h3
+              className="
+                text-zinc-500
+                uppercase
+                tracking-widest
+                text-sm
+                mb-6
+              "
+            >
+              Connect
+            </h3>
+
+            <div className="flex gap-4">
+              <a
+                href="https://github.com/mr-raushan"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  p-4
+                  rounded-2xl
+                  border
+                  border-white/10
+                  hover:bg-white/5
+                  transition-all
+                "
+              >
+                <FaGithub size={18} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/raushan-kumar-ba0a28273/"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  p-4
+                  rounded-2xl
+                  border
+                  border-white/10
+                  hover:bg-white/5
+                  transition-all
+                "
+              >
+                <FaLinkedin size={18} />
+              </a>
+
+              <a
+                href="mailto:kraushan9056@gmail.com"
+                className="
+                  p-4
+                  rounded-2xl
+                  border
+                  border-white/10
+                  hover:bg-white/5
+                  transition-all
+                "
+              >
+                <FaEnvelope size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="
+            border-t
+            border-white/10
+            my-10
+          "
+        />
+        <div
+          className="
+            flex
+            flex-col
+            md:flex-row
+            justify-between
+            gap-4
+            text-sm
+            text-zinc-500
+          "
+        >
+          <p>
+            © {new Date().getFullYear()} Raushan Kumar. All rights reserved.
+          </p>
+
+          <p>Built with React, Tailwind CSS & Framer Motion.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;

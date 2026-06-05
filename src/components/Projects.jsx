@@ -1,130 +1,316 @@
-/*eslint-disable*/
+/* eslint-disable */
 import { motion } from "framer-motion";
+import { FaArrowRight, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-const projects = [
+const featuredProjects = [
   {
-    title: "Blog App",
+    title: "KnowThySelf Platform",
+    year: "2026",
     description:
-      "This is a fully responsive blog application built using the MERN stack. The app allows users to create, read, update, and delete blog posts while offering a clean and modern UI.",
-    image: "https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg",
-    demo: "https://blog-app-brown-psi.vercel.app/login",
-    repo: "https://github.com/mr-raushan/Blog-App",
+      "A modern self-discovery platform focused on personal growth, mentorship and digital learning experiences.",
+
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+
+    tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+
+    demo: "https://knowthyselves.in/",
   },
+
   {
-    title: "Youtube Clone",
+    title: "BME360 Mobile App",
+    year: "2026",
+
     description:
-      "This is a YouTube Clone built using React, Redux Toolkit, Tailwind CSS, and React Router DOM. It fetches real-time video data and provides a smooth user experience similar to YouTube.",
-    image: "https://images.indianexpress.com/2021/06/YouTube-logo.jpg",
+      "Cross-platform mobile application built with React Native featuring notifications, pagination, APIs and scalable architecture.",
+
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3",
+
+    tech: ["React Native", "TypeScript", "Redux", "Firebase"],
+
+    demo: "https://bme360.tech/",
+  },
+
+  {
+    title: "KnowThySelf Admin Dashboard",
+    year: "2026",
+
+    description:
+      "Advanced admin dashboard for managing users, content and platform operations with analytics and reporting.",
+
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+
+    tech: ["React", "Redux", "REST API", "TypeScript"],
+
     demo: "#",
-    repo: "https://github.com/mr-raushan/yt_clone",
   },
+
   {
-    title: "Gmail Clone",
+    title: "Sach India Landing Page",
+    year: "2025",
+
     description:
-      "Enhancing UI skills by building a complex, responsive application with rich interactions.",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1200px-Gmail_icon_%282020%29.svg.png",
+      "Modern business landing page optimized for performance, responsiveness and conversion-focused user journeys.",
+
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
+
+    tech: ["React", "Tailwind CSS", "JavaScript"],
+
     demo: "#",
-    repo: "https://github.com/mr-raushan/gmailClone",
-  },
-  {
-    title: "Tours Plan",
-    description:
-      "The website showcases beautiful destinations and tours, built using React and CSS.",
-    image:
-      "https://hotelwoodlandnainital.com/wp-content/uploads/2024/09/Plan-Your-Trip.png",
-    demo: "#",
-    repo: "https://github.com/mr-raushan/ToursPlan",
-  },
-  {
-    title: "Netflix Clone",
-    description:
-      "A responsive Netflix-like web application built using MongoDB, Express.js, React.js, and Node.js.",
-    image:
-      "https://i.pcmag.com/imagery/reviews/05cItXL96l4LE9n02WfDR0h-5..v1582751026.png",
-    demo: "#",
-    repo: "https://github.com/mr-raushan/netflix",
-  },
-  {
-    title: "Weather App",
-    description:
-      "A responsive weather app built with React and Tailwind CSS, allowing users to search real-time weather updates by city. It fetches live data from an external API and displays temperature, humidity, wind speed, and conditions with a clean, mobile-friendly UI.",
-    image:
-      "https://9to5mac.com/wp-content/uploads/sites/6/2023/04/Apple-Weather-app.jpg?quality=82&strip=all&w=1024",
-    demo: "https://weatherapp-lyart-two.vercel.app/",
-    repo: "https://github.com/mr-raushan/weatherapp",
   },
 ];
 
-const container = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
+const sideProjects = [
+  {
+    title: "Blog App",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44",
+
+    github: "https://github.com/mr-raushan/Blog-App",
   },
-};
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
+
+  {
+    title: "YouTube Clone",
+
+    image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb",
+
+    github: "https://github.com/mr-raushan/yt_clone",
+  },
+
+  {
+    title: "Gmail Clone",
+
+    image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa",
+
+    github: "https://github.com/mr-raushan/gmailClone",
+  },
+];
 
 const Projects = () => {
   return (
-    <motion.section
-      id="projects"
-      className="max-w-7xl mx-auto px-4 py-24"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
-      <h2 className="text-3xl font-bold mb-8">Projects</h2>
-      <motion.div
-        className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {projects.map((project) => (
-          <motion.div
-            key={project.title}
-            className=" cursor-pointer hover:scale-150 transition-all duration-300 ease-in-out bg-gray-800 hover:shadow-xl rounded-xl shadow-lg overflow-hidden flex flex-col"
-            variants={item}
+    <section id="projects" className="relative py-32 px-6 bg-[#050505]">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-20"
+        >
+          <span
+            className="
+            px-4
+            py-2
+            rounded-full
+            border
+            border-white/10
+            bg-white/5
+            text-zinc-400
+            text-sm
+          "
           >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-44 object-cover"
-            />
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-200 mb-4 flex-1">{project.description}</p>
-              <div className="flex items-center justify-between gap-4 mt-auto">
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-                >
-                  Live Demo
-                </a>
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium"
-                >
-                  GitHub Repo
-                </a>
+            Featured Work
+          </span>
+          <h2
+            className="
+            mt-8
+            text-5xl
+            md:text-7xl
+            font-bold
+            leading-tight
+          "
+          >
+            Selected Projects
+          </h2>
+
+          <p
+            className="
+            mt-6
+            max-w-3xl
+            text-zinc-400
+            text-lg
+          "
+          >
+            Real-world applications, dashboards and mobile experiences I've
+            built and worked on.
+          </p>
+        </motion.div>
+
+        {/* Large Featured Project */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="
+          overflow-hidden
+          rounded-[40px]
+          border
+          border-white/10
+          bg-white/[0.03]
+          backdrop-blur-xl
+          mb-8
+        "
+        >
+          <div className="grid lg:grid-cols-2">
+            <div className="p-10 lg:p-14 flex flex-col justify-center">
+              <span className="text-zinc-500 text-sm">
+                {featuredProjects[0].year}
+              </span>
+
+              <h3 className="text-4xl font-bold mt-3">
+                {featuredProjects[0].title}
+              </h3>
+
+              <p className="mt-6 text-zinc-400 leading-8">
+                {featuredProjects[0].description}
+              </p>
+
+              <div className="flex flex-wrap gap-3 mt-8">
+                {featuredProjects[0].tech.map((item) => (
+                  <span
+                    key={item}
+                    className="
+                    px-4
+                    py-2
+                    rounded-full
+                    bg-white/5
+                    border
+                    border-white/10
+                    text-sm
+                  "
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
+
+              <a
+                href={featuredProjects[0].demo}
+                className="
+                flex
+                items-center
+                gap-3
+                mt-10
+                text-white
+              "
+              >
+                View Project
+                <FaArrowRight />
+              </a>
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.section>
+
+            <div className="overflow-hidden">
+              <img
+                src={featuredProjects[0].image}
+                alt=""
+                className="
+                h-full
+                w-full
+                object-cover
+                hover:scale-105
+                transition-all
+                duration-700
+              "
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bento Grid */}
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {featuredProjects.slice(1).map((project) => (
+            <motion.div
+              key={project.title}
+              whileHover={{
+                y: -8,
+              }}
+              className="
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-white/10
+                bg-white/[0.03]
+                backdrop-blur-xl
+              "
+            >
+              <div className="h-[280px] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt=""
+                  className="
+                    h-full
+                    w-full
+                    object-cover
+                    hover:scale-105
+                    transition-all
+                    duration-700
+                  "
+                />
+              </div>
+
+              <div className="p-8">
+                <span className="text-zinc-500">{project.year}</span>
+
+                <h3 className="text-2xl font-bold mt-2">{project.title}</h3>
+
+                <p className="text-zinc-400 mt-4">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="
+                        px-3
+                        py-1
+                        rounded-full
+                        border
+                        border-white/10
+                        text-sm
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Side Projects */}
+
+        <div className="mt-20">
+          <h3 className="text-3xl font-bold mb-8">Other Projects</h3>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {sideProjects.map((project) => (
+              <a
+                key={project.title}
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  flex
+                  items-center
+                  justify-between
+                  p-6
+                  rounded-2xl
+                  border
+                  border-white/10
+                  bg-white/[0.03]
+                  hover:bg-white/[0.06]
+                  transition-all
+                "
+              >
+                <span>{project.title}</span>
+
+                <FaGithub />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
