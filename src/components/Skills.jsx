@@ -83,8 +83,9 @@ const Skills = () => {
 
           <h2
             className="
-              text-5xl
-              md:text-7xl
+              text-4xl
+              md:text-6xl
+              lg:text-7xl
               font-bold
               mt-8
               leading-tight
@@ -96,41 +97,38 @@ const Skills = () => {
           </h2>
         </motion.div>
 
-        {/* Categories */}
+        {/* Main Card */}
 
-        <div className="space-y-8">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-              }}
-              className="
-                rounded-[32px]
-                border
-                border-white/10
-                bg-gradient-to-b
-                from-white/[0.05]
-                to-white/[0.02]
-                backdrop-blur-xl
-                p-8
-              "
-            >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="
+            rounded-[32px]
+            border
+            border-white/10
+            bg-gradient-to-b
+            from-white/[0.05]
+            to-white/[0.02]
+            backdrop-blur-xl
+            p-8
+            md:p-10
+          "
+        >
+          {skillCategories.map((category) => (
+            <div key={category.title} className="mb-10 last:mb-0">
               {/* Category Header */}
 
-              <div className="mb-8">
+              <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-semibold">{category.title}</h3>
 
-                <p className="text-zinc-500 text-sm mt-1">
-                  {category.skills.length} Technologies
-                </p>
+                <span className="text-sm text-zinc-500">
+                  {category.skills.length} Skills
+                </span>
               </div>
 
-              {/* Skills Grid */}
+              {/* Skills */}
 
               <div
                 className="
@@ -146,7 +144,7 @@ const Skills = () => {
                     key={skill.name}
                     whileHover={{
                       y: -5,
-                      scale: 1.05,
+                      scale: 1.03,
                     }}
                     transition={{
                       duration: 0.2,
@@ -163,8 +161,8 @@ const Skills = () => {
                       flex-col
                       items-center
                       justify-center
-                      cursor-pointer
                       overflow-hidden
+                      cursor-pointer
                     "
                   >
                     {/* Hover Glow */}
@@ -177,7 +175,7 @@ const Skills = () => {
                         group-hover:opacity-100
                         transition-all
                         duration-300
-                        bg-gradient-to-b
+                        bg-gradient-to-br
                         from-blue-500/10
                         to-purple-500/10
                       "
@@ -192,9 +190,9 @@ const Skills = () => {
                         text-2xl
                         text-white
                         mb-2
+                        group-hover:text-blue-400
                         transition-all
                         duration-300
-                        group-hover:text-blue-400
                       "
                     >
                       {skill.icon}
@@ -220,9 +218,15 @@ const Skills = () => {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+
+              {/* Divider */}
+
+              {category.title !== "Tools" && (
+                <div className="h-px bg-white/10 mt-8" />
+              )}
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
