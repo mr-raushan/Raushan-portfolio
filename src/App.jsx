@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="bg-[#050505] text-white min-h-screen">
       <Navbar />
-      <main className="py-16">
+      <main className="py-16 md:px-12">
         <Hero />
         <About />
         <Experience />
