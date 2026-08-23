@@ -16,7 +16,7 @@ const experiences = [
     role: "Software Engineer",
     company: "Where U Elevate",
     location: "India",
-    duration: "Jan 2026 — Present",
+    duration: "Sep 2025 — Present",
     status: "Current Role",
     statusColor: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
     description:
@@ -36,25 +36,25 @@ const experiences = [
       "Tailwind CSS",
     ],
   },
+  // {
+  //   number: "02",
+  //   role: "Frontend Developer Intern",
+  //   company: "Where U Elevate",
+  //   location: "India",
+  //   duration: "Sep 2025 — Dec 2025",
+  //   status: "Completed",
+  //   statusColor: "bg-blue-500/10 border-blue-500/20 text-blue-400",
+  //   description:
+  //     "Developed high-conversion landing pages, interactive dashboard modules, user authentication flows, and reusable UI component libraries. Collaborated closely with senior developers and product designers.",
+  //   achievements: [
+  //     "Built responsive dashboard modules & secure authentication workflows",
+  //     "Created modular component library decreasing UI development turnaround time",
+  //     "Ensured pixel-perfect responsive fidelity across desktop, tablet, and mobile screens",
+  //   ],
+  //   tech: ["React.js", "TypeScript", "Tailwind CSS", "JavaScript", "REST APIs"],
+  // },
   {
     number: "02",
-    role: "Frontend Developer Intern",
-    company: "Where U Elevate",
-    location: "India",
-    duration: "Sep 2025 — Dec 2025",
-    status: "Completed",
-    statusColor: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    description:
-      "Developed high-conversion landing pages, interactive dashboard modules, user authentication flows, and reusable UI component libraries. Collaborated closely with senior developers and product designers.",
-    achievements: [
-      "Built responsive dashboard modules & secure authentication workflows",
-      "Created modular component library decreasing UI development turnaround time",
-      "Ensured pixel-perfect responsive fidelity across desktop, tablet, and mobile screens",
-    ],
-    tech: ["React.js", "TypeScript", "Tailwind CSS", "JavaScript", "REST APIs"],
-  },
-  {
-    number: "03",
     role: "Frontend Developer Intern",
     company: "Digital Guruji",
     location: "India",
@@ -81,7 +81,7 @@ const Experience = () => {
       <div className="absolute bottom-1/4 right-10 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -115,7 +115,7 @@ const Experience = () => {
               className="group relative rounded-[36px] border border-white/10 bg-gradient-to-b from-white/[0.05] to-white/[0.01] backdrop-blur-2xl p-8 md:p-12 transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_0_50px_rgba(59,130,246,0.15)]"
             >
               <div className="grid lg:grid-cols-12 gap-8 items-start">
-                
+
                 {/* Left Number & Node */}
                 <div className="lg:col-span-3 flex lg:flex-col justify-between items-start gap-4 pb-6 lg:pb-0 lg:border-r border-white/10 lg:pr-8">
                   <div className="flex items-center gap-4">
